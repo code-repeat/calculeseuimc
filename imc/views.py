@@ -6,7 +6,7 @@ def imc(request):
     if request.GET.get('height') and request.GET.get('weight') != '':
         height = float(request.GET.get('height'))
         weight = float(request.GET.get('weight'))
-        imc_result = weight / height ** 2
+        imc_result = round(weight / height ** 2, 2)
 
 
-    return render(request, 'imc/imcapp.html', {'imc':round(imc_result, 2)})
+    return render(request, 'imc/imcapp.html', {'imc':imc_result})
